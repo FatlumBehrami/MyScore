@@ -5,7 +5,6 @@ import android.widget.Toast;
 
 import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
-import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 
 import org.json.JSONArray;
@@ -16,12 +15,6 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
-import retrofit2.Retrofit;
-import retrofit2.converter.gson.GsonConverterFactory;
 
 public class LivescoreService {
 
@@ -81,7 +74,6 @@ public class LivescoreService {
                         matches.add(match);
                     }
                     league.setMatches(matches);
-                    Toast.makeText(ctx, league.toString(), Toast.LENGTH_SHORT).show();
                     leagues.add(league);
                 }
             } catch (JSONException e) {

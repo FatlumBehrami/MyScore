@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.Toast;
@@ -38,8 +39,16 @@ public class MainActivity extends AppCompatActivity {
         btn_football = findViewById(R.id.btn_football);
         btn_basketball = findViewById(R.id.btn_basketball);
         btn_tennis = findViewById(R.id.btn_tennis);
-        lv_scores = findViewById(R.id.lv_scores);
+
         final LivescoreService livescoreService = new LivescoreService(MainActivity.this);
+
+        lv_scores.setClickable(true);
+        lv_scores.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
 
         btn_football.setOnClickListener(v -> {
             Toast.makeText(MainActivity.this,"NO",Toast.LENGTH_LONG);
@@ -56,7 +65,8 @@ public class MainActivity extends AppCompatActivity {
 
                 @Override
                 public void onResponse(List<League> leagues) {
-
+                    ArrayAdapter adapter = new ArrayAdapter(MainActivity.this, android.R.layout.simple_list_item_1, leagues);
+                    lv_scores.setAdapter(adapter);
                 }
             });
         });
