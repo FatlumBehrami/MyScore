@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <Button
+        android:id="@+id/btn_football"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Football"
+        app:layout_constraintEnd_toStartOf="@+id/btn_basketball"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/btn_basketball"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Basketball"
+        app:layout_constraintEnd_toStartOf="@+id/btn_tennis"
+        app:layout_constraintStart_toEndOf="@id/btn_football"
+        app:layout_constraintTop_toTopOf="@+id/btn_football" />
+
+    <Button
+        android:id="@+id/btn_tennis"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Tennis"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/btn_basketball"
+        app:layout_constraintTop_toTopOf="@+id/btn_basketball" />
+
+    <ListView
+        android:id="@+id/lv_scores"
+        android:layout_width="531dp"
+        android:layout_height="761dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btn_football" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
