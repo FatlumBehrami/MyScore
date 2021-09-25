@@ -2,6 +2,7 @@ package com.example.myscore;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
@@ -40,43 +41,36 @@ public class MainActivity extends AppCompatActivity {
         btn_basketball = findViewById(R.id.btn_basketball);
         btn_tennis = findViewById(R.id.btn_tennis);
 
-        final LivescoreService livescoreService = new LivescoreService(MainActivity.this);
-
-        lv_scores.setClickable(true);
-        lv_scores.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-            }
-        });
-
         btn_football.setOnClickListener(v -> {
-            Toast.makeText(MainActivity.this,"NO",Toast.LENGTH_LONG);
+            Intent myIntent = new Intent(MainActivity.this, SportActivity.class);
+            myIntent.putExtra("key", "soccer"); //Optional parameters
+            MainActivity.this.startActivity(myIntent);
         });
 
         btn_basketball.setOnClickListener(v -> {
-
-
-            livescoreService.getFootballData(new LivescoreService.VolleyResponseListener() {
-                @Override
-                public void onError(String message) {
-                    Toast.makeText(MainActivity.this,message,Toast.LENGTH_LONG).show();
-                }
-
-                @Override
-                public void onResponse(List<League> leagues) {
-                    ArrayAdapter adapter = new ArrayAdapter(MainActivity.this, android.R.layout.simple_list_item_1, leagues);
-                    lv_scores.setAdapter(adapter);
-                }
-            });
+            Intent myIntent = new Intent(MainActivity.this, SportActivity.class);
+            myIntent.putExtra("key", "basketball"); //Optional parameters
+            MainActivity.this.startActivity(myIntent);
         });
 
-        btn_tennis.setOnClickListener(v -> Toast.makeText(MainActivity.this,"Click 3",Toast.LENGTH_LONG).show());
-
-
-
-
+        btn_tennis.setOnClickListener(v -> {
+            Intent myIntent = new Intent(MainActivity.this, SportActivity.class);
+            myIntent.putExtra("key", "tennis"); //Optional parameters
+            MainActivity.this.startActivity(myIntent);
+        });
 
 
     }
 }
+//            livescoreService.getFootballData(new LivescoreService.VolleyResponseListener() {
+//                @Override
+//                public void onError(String message) {
+//                    Toast.makeText(MainActivity.this,message,Toast.LENGTH_LONG).show();
+//                }
+//
+//                @Override
+//                public void onResponse(List<League> leagues) {
+//                    ArrayAdapter adapter = new ArrayAdapter(MainActivity.this, android.R.layout.simple_list_item_1, leagues);
+//                    lv_scores.setAdapter(adapter);
+//                }
+//            });
