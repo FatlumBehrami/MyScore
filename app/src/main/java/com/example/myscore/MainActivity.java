@@ -30,7 +30,6 @@ import java.util.Map;
 public class MainActivity extends AppCompatActivity {
 
     Button btn_football, btn_basketball, btn_tennis;
-    ListView lv_scores;
 
 
     @Override
@@ -40,6 +39,9 @@ public class MainActivity extends AppCompatActivity {
         btn_football = findViewById(R.id.btn_football);
         btn_basketball = findViewById(R.id.btn_basketball);
         btn_tennis = findViewById(R.id.btn_tennis);
+
+
+
 
         btn_football.setOnClickListener(v -> {
             Intent myIntent = new Intent(MainActivity.this, SportActivity.class);
@@ -62,15 +64,3 @@ public class MainActivity extends AppCompatActivity {
 
     }
 }
-//            livescoreService.getFootballData(new LivescoreService.VolleyResponseListener() {
-//                @Override
-//                public void onError(String message) {
-//                    Toast.makeText(MainActivity.this,message,Toast.LENGTH_LONG).show();
-//                }
-//
-//                @Override
-//                public void onResponse(List<League> leagues) {
-//                    ArrayAdapter adapter = new ArrayAdapter(MainActivity.this, android.R.layout.simple_list_item_1, leagues);
-//                    lv_scores.setAdapter(adapter);
-//                }
-//            });

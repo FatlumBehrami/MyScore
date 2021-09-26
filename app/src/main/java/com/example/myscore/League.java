@@ -16,10 +16,20 @@ public class League {
     @SerializedName("Cnm")
     String Country = "";
 
+    @SerializedName("Scd")
+    String LeagueCode = "";
+
+    public String getLeagueCode() {
+        return LeagueCode;
+    }
+
+    public void setLeagueCode(String leagueCode) {
+        LeagueCode = leagueCode;
+    }
+
     @Override
     public String toString() {
-        return "League{" +
-                "Id='" + Id + '\'' +
+        return "League " +
                 ", League='" + League + '\'' +
                 ", Country='" + Country + '\'' +
                 ", Matches=" + Matches +
